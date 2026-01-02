@@ -174,13 +174,19 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
   font-weight: bold;
   
   position: absolute;   /* agar bisa digeser bebas */
-  top: 265px;            /* jarak dari atas slide, bisa diubah */
+  top: 275px;            /* jarak dari atas slide, bisa diubah */
   left: 50%;            /* untuk menengahkan horizontal */
   transform: translateX(-50%); /* center horizontal */
   margin: 0;
 }
-
-
+#p4 .card p {
+  font-size: 20px;
+  color: #185a9d;
+  line-height: 1.5;
+  letter-spacing: 0.0px;
+  text-align: justify;
+  margin: 15px 0;
+}
 
 
 /* Countdown */
@@ -231,7 +237,7 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 <div class="page active" id="p1">
   <div class="card">
     <h1 class="animate-text" style="font-size:40px; color:#ff1493; font-weight:bold;">Undangan Acara</h1>
-    <h2 class="animate-text" style="font-size:22px; color:#000000; font-weight:bold;">Zamzahri S.Kom & Salsabilamawaddah S.Kom</h2>
+    <h2 class="animate-text" style="font-size:25px; color:#000000; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</h2>
 
     <p class="animate-text" style="font-size:20px; color:#185a9d;">Dengan hormat,</p>
     <p class="animate-text" style="font-size:18px; color:#000000;">Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Syukuran Pernikahan kami.</p>
@@ -240,7 +246,7 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
     <p class="animate-text" style="font-size:18px; color:#000000;">Tempat: Gedung Serbaguna Jambi</p>
     <p class="animate-text" style="font-size:18px; color:#000000;">Atas kehadiran dan doa restu Bapak/Ibu, kami ucapkan terima kasih.</p>
     <p class="animate-text" style="font-size:18px; color:#000000;">Hormat kami,</p>
-    <p class="animate-text" style="font-size:20px; color:#080808; font-weight:bold;">Zamzahri S.Kom & Salsabilamawaddah S.Kom</p>
+    <p class="animate-text" style="font-size:20px; color:#080808; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</p>
     <p class="animate-text" style="font-size:16px; color:#666;">Tap layar untuk lanjut</p>
   </div>
 </div>
@@ -262,7 +268,24 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
   </div>
 </div>
 
+<!-- PAGE 4: Cerita Kita -->
 <div class="page" id="p4">
+  <div class="card">
+    <h2 class="animate-text" style="font-size:28px; color:#ff1493; font-weight:bold; line-height:1.4; letter-spacing:0.5px; text-align:center;">
+      Cerita Awal Pertemuan Kami
+    </h2>
+    <p>
+      Pada tahun 2022, kami pertama kali bertemu dan mulai menjalin hubungan. 
+      Selama beberapa tahun, kami saling mengenal, mendukung satu sama lain, dan berbagi banyak momen berharga. 
+      Kini, di tahun 2026, kami memutuskan untuk melangkah ke jenjang yang lebih serius dan merayakan cinta kami bersama keluarga dan sahabat.
+    </p>
+  
+    <p class="animate-text" style="font-size:16px; color:#666; text-align:center;">Tap layar untuk lanjut</p>
+  </div>
+</div>
+</script>
+
+<div class="page" id="p5">
   <div class="card">
     <h2>📷 Galeri Cerita</h2>
     <div class="story-gallery">
@@ -284,7 +307,7 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 
 
 <!-- PAGE 5 -->
-<div class="page" id="p5">
+<div class="page" id="p6">
   <div class="card">
     <h2>📩 Konfirmasi Kehadiran</h2>
     <button class="confirm-btn no-swipe" onclick="konfirmasiWA('Hadir')">Saya Hadir</button>
@@ -293,7 +316,7 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 </div>
 
 <!-- PAGE 6: Penutup -->
-<div class="page active" id="p6">
+<div class="page active" id="p7">
   <div class="card">
     <h1 class="animate-text" style="font-size:30px; color:#060506; font-weight:bold;">Terima Kasih</h1>
     <p class="animate-text" style="font-size:22px; color:#185a9d;">Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i.</p>
@@ -328,7 +351,9 @@ function bukaUndangan(){
   musikNyala=true;
   bunga();
   animateTextPage('#p1');
+  animateTextPage('#p4');
 }
+
 
 /* tap di mana saja */
 document.addEventListener("click",e=>{
@@ -343,12 +368,12 @@ document.addEventListener("click",e=>{
   pages[index].classList.add("active");
 
   // Jalankan animasi teks di halaman 1 & 6
-  if(pages[index].id==='p1' || pages[index].id==='p6'){
+  if(pages[index].id==='p1' || pages[index].id==='p7'){
     animateTextPage(`#${pages[index].id}`);
   }
 
   // Jika halaman 6, klik apa saja kembali ke cover
-  if(pages[index].id==='p6'){
+  if(pages[index].id==='p7'){
     pages[index].addEventListener('click',()=>{
       pages[index].classList.remove('active');
       document.getElementById('cover').style.display='flex';
@@ -415,4 +440,3 @@ function konfirmasiWA(status){
 
 </body>
 </html>
-
