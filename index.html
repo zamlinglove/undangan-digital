@@ -121,11 +121,67 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:10px;
+  
 }
 .gallery img{
   width:100%;
-  border-radius:12px;
+  border-radius:20px;
 }
+/* Container galeri cerita */
+.story-gallery {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+/* Setiap slide cerita */
+.story-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slide aktif */
+.story-slide.active {
+  opacity: 1;
+}
+
+/* Gambar di slide */
+.story-slide img {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Teks di slide */
+.story-slide p {
+  font-size: 12px;
+  color: #185a9d;
+  font-weight: bold;
+  
+  position: absolute;   /* agar bisa digeser bebas */
+  top: 270px;            /* jarak dari atas slide, bisa diubah */
+  left: 50%;            /* untuk menengahkan horizontal */
+  transform: translateX(-50%); /* center horizontal */
+  margin: 0;
+}
+
+
+
 
 /* Countdown */
 #countdown{font-size:18px; font-weight:bold; margin-top:10px;}
@@ -175,16 +231,16 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 <div class="page active" id="p1">
   <div class="card">
     <h1 class="animate-text" style="font-size:40px; color:#ff1493; font-weight:bold;">Undangan Acara</h1>
-    <h2 class="animate-text" style="font-size:30px; color:#ff4500; font-weight:bold;">Zamzahri S.kom & Salsabilamwaddah S.Kom</h2>
+    <h2 class="animate-text" style="font-size:25px; color:#000000; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</h2>
 
     <p class="animate-text" style="font-size:20px; color:#185a9d;">Dengan hormat,</p>
-    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Syukuran Pernikahan kami.</p>
-    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Hari/Tanggal: Senin, 20 Januari 2026</p>
-    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Waktu: 10.00 WIB</p>
-    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Tempat: Gedung Serbaguna Jambi</p>
-    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Atas kehadiran dan doa restu Bapak/Ibu, kami ucapkan terima kasih.</p>
-    <p class="animate-text" style="font-size:18px; color:#185a9d;">Hormat kami,</p>
-    <p class="animate-text" style="font-size:20px; color:#ff4500; font-weight:bold;">Zamzahri S.kom & Salsabilamwaddah S.Kom</p>
+    <p class="animate-text" style="font-size:18px; color:#000000;">Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Syukuran Pernikahan kami.</p>
+    <p class="animate-text" style="font-size:18px; color:#000000;">Hari/Tanggal: Senin, 20 Januari 2030</p>
+    <p class="animate-text" style="font-size:18px; color:#000000;">Waktu: 10.00 WIB</p>
+    <p class="animate-text" style="font-size:18px; color:#000000;">Tempat: Gedung Serbaguna Jambi</p>
+    <p class="animate-text" style="font-size:18px; color:#000000;">Atas kehadiran dan doa restu Bapak/Ibu, kami ucapkan terima kasih.</p>
+    <p class="animate-text" style="font-size:18px; color:#000000;">Hormat kami,</p>
+    <p class="animate-text" style="font-size:20px; color:#080808; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</p>
     <p class="animate-text" style="font-size:16px; color:#666;">Tap layar untuk lanjut</p>
   </div>
 </div>
@@ -206,17 +262,26 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
   </div>
 </div>
 
-<!-- PAGE 4 -->
 <div class="page" id="p4">
   <div class="card">
-    <h2>📷 Galeri Foto</h2>
-    <div class="gallery">
-      <img src="wn.jpeg">
-      <img src="tr.jpeg">
-      <img src="ft.jpeg">
+    <h2>📷 Galeri Cerita</h2>
+    <div class="story-gallery">
+      <div class="story-slide active">
+        <img src="ft.jpeg" alt="Pertemuan pertama">
+        <p>Pertemuan pertama kita di kampus 😊</p>
+      </div>
+      <div class="story-slide">
+        <img src="tr.jpeg" alt="Makan bersama">
+        <p>Makan bareng dan jalan-jalan 🍽️</p>
+      </div>
+      <div class="story-slide">
+        <img src="wn.jpeg" alt="Acara ulang tahun">
+        <p>Rayakan wisuda</p>
+      </div>
     </div>
   </div>
 </div>
+
 
 <!-- PAGE 5 -->
 <div class="page" id="p5">
@@ -244,6 +309,17 @@ const pages=document.querySelectorAll(".page");
 let index=0;
 let musikNyala=false;
 const musik=document.getElementById("musik");
+let currentSlide = 0;
+const slides = document.querySelectorAll('.story-slide');
+
+function nextSlide(){
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (currentSlide + 1) % slides.length;
+  slides[currentSlide].classList.add('active');
+}
+
+setInterval(nextSlide, 4000); // ganti slide tiap 4 detik
+
 
 /* buka undangan */
 function bukaUndangan(){
@@ -332,12 +408,10 @@ setInterval(()=>{
 /* WA konfirmasi */
 function konfirmasiWA(status){
   const wa="6285126673465";
-  const msg=`Halo, saya akan ${status} di acara Zamzahri & Keluarga 😊`;
+  const msg=`Halo, saya akan ${status} di acara Zamzahri S.Kom & Salsabilamwaddah S.Kom 😊`;
   window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,"_blank");
 }
 </script>
 
 </body>
 </html>
-
-
