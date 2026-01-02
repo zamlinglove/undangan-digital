@@ -169,21 +169,21 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 
 /* Teks di slide */
 .story-slide p {
-  font-size: 12px;
+  font-size: 10px;
   color: #185a9d;
   font-weight: bold;
   
   position: absolute;   /* agar bisa digeser bebas */
-  top: 275px;            /* jarak dari atas slide, bisa diubah */
+  top: 265px;            /* jarak dari atas slide, bisa diubah */
   left: 50%;            /* untuk menengahkan horizontal */
   transform: translateX(-50%); /* center horizontal */
   margin: 0;
 }
 #p4 .card p {
-  font-size: 20px;
+  font-size: 18px;
   color: #185a9d;
   line-height: 1.5;
-  letter-spacing: 0.0px;
+  letter-spacing: 0.-1px;
   text-align: justify;
   margin: 15px 0;
 }
@@ -236,18 +236,18 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 <!-- PAGE 1: Salam & Pembuka -->
 <div class="page active" id="p1">
   <div class="card">
-    <h1 class="animate-text" style="font-size:40px; color:#ff1493; font-weight:bold;">Undangan Acara</h1>
-    <h2 class="animate-text" style="font-size:25px; color:#000000; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</h2>
+    <h1 class="animate-text" style="font-size:20px; color:#ff1493; font-weight:bold;">Undangan Acara</h1>
+    <h2 class="animate-text" style="font-size:15px; color:#000000; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</h2>
 
-    <p class="animate-text" style="font-size:20px; color:#185a9d;">Dengan hormat,</p>
-    <p class="animate-text" style="font-size:18px; color:#000000;">Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Syukuran Pernikahan kami.</p>
-    <p class="animate-text" style="font-size:18px; color:#000000;">Hari/Tanggal: Senin, 20 Januari 2030</p>
-    <p class="animate-text" style="font-size:18px; color:#000000;">Waktu: 10.00 WIB</p>
-    <p class="animate-text" style="font-size:18px; color:#000000;">Tempat: Gedung Serbaguna Jambi</p>
-    <p class="animate-text" style="font-size:18px; color:#000000;">Atas kehadiran dan doa restu Bapak/Ibu, kami ucapkan terima kasih.</p>
-    <p class="animate-text" style="font-size:18px; color:#000000;">Hormat kami,</p>
-    <p class="animate-text" style="font-size:20px; color:#080808; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</p>
-    <p class="animate-text" style="font-size:16px; color:#666;">Tap layar untuk lanjut</p>
+    <p class="animate-text" style="font-size:14px; color:#185a9d;">Dengan hormat,</p>
+    <p class="animate-text" style="font-size:14px; color:#000000;">Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Syukuran Pernikahan kami.</p>
+    <p class="animate-text" style="font-size:14px; color:#000000;">Hari/Tanggal: Senin, 20 Januari 2030</p>
+    <p class="animate-text" style="font-size:14px; color:#000000;">Waktu: 10.00 WIB</p>
+    <p class="animate-text" style="font-size:14px; color:#000000;">Tempat: Gedung Serbaguna Jambi</p>
+    <p class="animate-text" style="font-size:14px; color:#000000;">Atas kehadiran dan doa restu Bapak/Ibu, kami ucapkan terima kasih.</p>
+    <p class="animate-text" style="font-size:14px; color:#000000;">Hormat kami,</p>
+    <p class="animate-text" style="font-size:15px; color:#080808; font-weight:bold;">Zamzahri S.Kom & Salsabilamwaddah S.Kom</p>
+    <p class="animate-text" style="font-size:10px; color:#666;">Tap layar untuk lanjut</p>
   </div>
 </div>
 
@@ -259,20 +259,25 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
   </div>
 </div>
 
-<!-- PAGE 3 -->
+<!-- PAGE 3: Lokasi Acara -->
+<!-- PAGE 3: Lokasi Acara -->
 <div class="page" id="p3">
   <div class="card">
     <h2>🗺️ Lokasi Acara</h2>
-    <iframe src="https://www.google.com/maps?q=Jambi&output=embed"
-      width="100%" height="250" style="border:0;border-radius:12px"></iframe>
+    <div style="position:relative; width:100%; padding-bottom:56.25%; border-radius:12px; overflow:hidden;">
+      <iframe 
+        src="https://www.google.com/maps?q=Hotel+BW+Jambi&output=embed" 
+        style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" 
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
 </div>
-
 <!-- PAGE 4: Cerita Kita -->
 <div class="page" id="p4">
   <div class="card">
-    <h2 class="animate-text" style="font-size:28px; color:#ff1493; font-weight:bold; line-height:1.2; letter-spacing:0.5px; text-align:center;">
-      Cerita Awal Pertemuan Kami
+    <h2 class="animate-text" style="font-size:18px; color:#ff1493; font-weight:bold; line-height:1.5; letter-spacing:0.5px; text-align:center;">
+    Cerita Awal Pertemuan Kami
     </h2>
     <p>
       Pada tahun 2022, kami pertama kali bertemu dan mulai menjalin hubungan. 
@@ -280,7 +285,7 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
       Kini, di tahun 2026, kami memutuskan untuk melangkah ke jenjang yang lebih serius dan merayakan cinta kami bersama keluarga dan sahabat.
     </p>
   
-    <p class="animate-text" style="font-size:16px; color:#666; text-align:center;">Tap layar untuk lanjut</p>
+    <p class="animate-text" style="font-size:12px; color:#666; text-align:center;">Tap layar untuk lanjut</p>
   </div>
 </div>
 </script>
@@ -318,9 +323,9 @@ h1,h2,p{margin:10px 0; line-height:1.5;}
 <!-- PAGE 6: Penutup -->
 <div class="page active" id="p7">
   <div class="card">
-    <h1 class="animate-text" style="font-size:30px; color:#060506; font-weight:bold;">Terima Kasih</h1>
-    <p class="animate-text" style="font-size:22px; color:#185a9d;">Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i.</p>
-    <p class="animate-text" style="font-size:22px; color:#185a9d;">Semoga kita semua senantiasa diberkahi dan bahagia.</p>
+    <h1 class="animate-text" style="font-size:25px; color:#060506; font-weight:bold;">Terima Kasih</h1>
+    <p class="animate-text" style="font-size:20px; color:#185a9d;">Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i.</p>
+    <p class="animate-text" style="font-size:20px; color:#185a9d;">Semoga kita semua senantiasa diberkahi dan bahagia.</p>
     <p class="animate-text fancy-text">Tap layar untuk kembali ke halaman awal</p>
   </div>
 </div>
