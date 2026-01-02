@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Digital</title>
+<style>
+body{
+  margin:0;
+  font-family:'Times New Roman', serif;
+  text-align:center;
+  overflow:hidden;
+  background:#fff;
+}
+
+/* Background gambar */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("undangan.png") center/cover no-repeat;
+  z-index:-2;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,0.05);
+  z-index:-1;
+}
+
+/* Halaman */
+.page{
+  display:none;
+  min-height:100vh;
+  padding:40px 20px;
+  box-sizing:border-box;
+}
+.page.active{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:fadeUp .8s ease;
+}
+
+.card{
+  background:#fff;
+  max-width:500px;
+  width:100%;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(26, 26, 26, 0.15);
+}
+
+h1,h2,p{margin:10px 0; line-height:1.5;}
+
+/* Animasi halaman */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Cover */
+#cover{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#43cea2,#185a9d);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+#cover button{
+  margin-top:20px;
+  padding:12px 30px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
+  background:#fff;
+  color:#185a9d;
+  font-weight:bold;
+}
+
+/* Musik */
+.music-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#185a9d;
+  color:#fff;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:1000;
+}
+
+/* Bunga jatuh */
+.flower{
+  position:fixed;
+  top:-30px;
+  font-size:24px;
+  animation:fall linear infinite;
+  pointer-events:none;
+}
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0deg); opacity:1;}
+  100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* Galeri */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* Countdown */
+#countdown{font-size:18px; font-weight:bold; margin-top:10px;}
+
+/* Tombol konfirmasi */
+.confirm-btn{
+  margin:10px 5px;
+  padding:12px 20px;
+  border:none;
+  border-radius:10px;
+  background:#4CAF50;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  width:45%;
+  font-weight:bold;
+}
+
+
+/* Animasi slide dari atas */
+@keyframes slideDown{
+  0% {opacity:0; transform:translateY(-50px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+
+.animate-text span {
+  display:inline-block;
+  opacity:0;
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div id="cover">
+  <h1>Undangan Acara</h1>
+  <p>Tap di bawah untuk membuka</p>
+  <button onclick="bukaUndangan()">Buka Undangan</button>
+</div>
+
+<!-- MUSIK -->
+<audio id="musik" loop>
+  <source src="James_Arthur_-_A_Thousand_Years__Christina_Perri_Cover_(256k).mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1: Salam & Pembuka -->
+<div class="page active" id="p1">
+  <div class="card">
+    <h1 class="animate-text" style="font-size:40px; color:#ff1493; font-weight:bold;">Undangan Acara</h1>
+    <h2 class="animate-text" style="font-size:30px; color:#ff4500; font-weight:bold;">Zamzahri & Keluarga</h2>
+
+    <p class="animate-text" style="font-size:20px; color:#185a9d;">Dengan hormat,</p>
+    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara Syukuran Pernikahan kami.</p>
+    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Hari/Tanggal: Senin, 20 Januari 2026</p>
+    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Waktu: 10.00 WIB</p>
+    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Tempat: Gedung Serbaguna Jambi</p>
+    <p class="animate-text" style="font-size:18px; color:#2e8b57;">Atas kehadiran dan doa restu Bapak/Ibu, kami ucapkan terima kasih.</p>
+    <p class="animate-text" style="font-size:18px; color:#185a9d;">Hormat kami,</p>
+    <p class="animate-text" style="font-size:20px; color:#ff4500; font-weight:bold;">Zamzahri & Keluarga</p>
+    <p class="animate-text" style="font-size:16px; color:#666;">Tap layar untuk lanjut</p>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <div class="card">
+    <h2>⏳ Hitung Mundur Acara</h2>
+    <p id="countdown"></p>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+  <div class="card">
+    <h2>🗺️ Lokasi Acara</h2>
+    <iframe src="https://www.google.com/maps?q=Jambi&output=embed"
+      width="100%" height="250" style="border:0;border-radius:12px"></iframe>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+  <div class="card">
+    <h2>📷 Galeri Foto</h2>
+    <div class="gallery">
+      <img src="img/wn.jpeg">
+      <img src="img/tr.jpeg">
+      <img src="img/ft.jpeg">
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+  <div class="card">
+    <h2>📩 Konfirmasi Kehadiran</h2>
+    <button class="confirm-btn no-swipe" onclick="konfirmasiWA('Hadir')">Saya Hadir</button>
+    <button class="confirm-btn no-swipe" onclick="konfirmasiWA('Tidak Hadir')">Tidak Bisa Hadir</button>
+  </div>
+</div>
+
+<!-- PAGE 6: Penutup -->
+<div class="page active" id="p6">
+  <div class="card">
+    <h1 class="animate-text" style="font-size:30px; color:#060506; font-weight:bold;">Terima Kasih</h1>
+    <p class="animate-text" style="font-size:22px; color:#185a9d;">Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i.</p>
+    <p class="animate-text" style="font-size:22px; color:#185a9d;">Semoga kita semua senantiasa diberkahi dan bahagia.</p>
+    <p class="animate-text fancy-text">Tap layar untuk kembali ke halaman awal</p>
+  </div>
+</div>
+
+<div class="music-btn no-swipe" onclick="toggleMusik()">🔊</div>
+
+<script>
+const pages=document.querySelectorAll(".page");
+let index=0;
+let musikNyala=false;
+const musik=document.getElementById("musik");
+
+/* buka undangan */
+function bukaUndangan(){
+  document.getElementById("cover").style.display="none";
+  musik.play().catch(()=>{});
+  musikNyala=true;
+  bunga();
+  animateTextPage('#p1');
+}
+
+/* tap di mana saja */
+document.addEventListener("click",e=>{
+  if(
+    e.target.closest(".no-swipe") ||
+    e.target.closest("button") ||
+    e.target.closest("iframe")
+  ) return;
+
+  pages[index].classList.remove("active");
+  index = (index + 1) % pages.length;
+  pages[index].classList.add("active");
+
+  // Jalankan animasi teks di halaman 1 & 6
+  if(pages[index].id==='p1' || pages[index].id==='p6'){
+    animateTextPage(`#${pages[index].id}`);
+  }
+
+  // Jika halaman 6, klik apa saja kembali ke cover
+  if(pages[index].id==='p6'){
+    pages[index].addEventListener('click',()=>{
+      pages[index].classList.remove('active');
+      document.getElementById('cover').style.display='flex';
+    }, {once:true});
+  }
+});
+
+
+/* musik */
+function toggleMusik(){
+  musikNyala?musik.pause():musik.play();
+  musikNyala=!musikNyala;
+}
+
+/* bunga terus-menerus */
+function bunga(){
+  setInterval(()=>{
+    const f=document.createElement("div");
+    f.className="flower";
+    f.innerText="🌸";
+    f.style.left=Math.random()*100+"vw";
+    f.style.fontSize=20+Math.random()*15+"px";
+    f.style.animationDuration=3+Math.random()*3+"s";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),6000);
+  },300);
+}
+
+/* animasi teks per karakter */
+function animateTextPage(selector){
+  const page = document.querySelector(selector);
+  page.querySelectorAll('.animate-text').forEach(el=>{
+    const text = el.innerText;
+    el.innerHTML = '';
+    [...text].forEach((char,i)=>{
+      const span = document.createElement('span');
+      span.innerHTML = char===' '?'&nbsp;':char;
+      span.style.animation = 'slideDown 0.6s forwards';
+      span.style.animationDelay = `${i*0.03}s`;
+      el.appendChild(span);
+    });
+  });
+}
+
+/* countdown */
+const target=new Date("2026-01-20T10:00:00").getTime();
+setInterval(()=>{
+  const now=Date.now();
+  const s=target-now;
+  if(s<=0) return document.getElementById("countdown").innerText="Acara dimulai";
+  document.getElementById("countdown").innerText=
+    Math.floor(s/86400000)+" hari "+
+    Math.floor(s/3600000%24)+" jam "+
+    Math.floor(s/60000%60)+" menit";
+},1000);
+
+/* WA konfirmasi */
+function konfirmasiWA(status){
+  const wa="6285126673465";
+  const msg=`Halo, saya akan ${status} di acara Zamzahri & Keluarga 😊`;
+  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,"_blank");
+}
+</script>
+
+</body>
+</html>
